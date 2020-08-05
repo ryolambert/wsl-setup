@@ -19,14 +19,23 @@ git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugi
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+
 # Set Zsh as your default shell:
 chsh -s /bin/zsh
 
 # Move/replace setting files to /Home
 replace ".gitconfig"        ".gitconfig"
+replace ".dircolors"        ".dircolors"
 replace ".gitignore_global" ".gitignore_global"
+replace ".bashrc"           ".bashrc"
+replace ".profile"          ".profile"
+replace ".bash_logout"      ".bash_logout"
 replace ".zshrc"            ".zshrc"
-
+replace ".zsh_aliases"      ".zsh_aliases"
+replace ".shell_prompt.sh"  ".shell_prompt.sh"
+replace "packages"          "packages"
 # Git configs
 e_header "Configure your Git settings: "
 nano ${HOME}/.gitconfig

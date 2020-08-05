@@ -1,0 +1,132 @@
+# Be nice to the machine.
+alias please='sudo'
+
+# Directories
+alias ..='cd ..'
+alias dl='cd ${HOME}/Downloads'
+alias dt='cd ${HOME}/Desktop'
+alias dev='cd ${HOME}/dev'
+alias oss='cd ${HOME}/dev/open-source'
+
+# Git
+alias gswm='git switch master'
+alias branches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
+
+# Weather
+# Found in @noopkat’s dotfiles (https://github.com/noopkat/dotfiles)
+alias weather='curl http://wttr.in/Albuquerque'
+alias moon='curl http://wttr.in/Moon'
+
+# Extract .tar/.tar.gz/.tar.bz archives because who has time to remember this awful interface.
+alias untar='tar -xf'
+alias untargz='tar -xzf'
+alias untarbz='tar -xjf'
+
+# I finally had enough of typing this out
+alias aptup='sudo apt update \
+  && apt list --upgradable \
+  && sudo apt upgrade -y \
+  && sudo snap refresh'
+
+# Echo path, but with each entry on its own line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Open files in an editor like code, subl, gedit or vim.
+alias o=code
+
+# Cat replacement.
+# https://github.com/sharkdp/bat
+# alias cat='bat --plain'
+
+# Find replacement.
+# https://github.com/sharkdp/fd
+alias fd='fdfind'
+
+# Workaround for peek not being able to capture the mouse cursor.
+alias peek='peek -b ffmpeg'
+
+# Default “ls” should always show
+# -l  as a list
+# -h  with human-readable file sizes
+# -F  with indicator (e.g. trailing / for directories)
+alias ls='ls -lahF --color'
+
+# Better directory listing.
+#
+# Enable colored output and sort output in the following order:
+# directory, regular files, symbolic links
+
+list_sorted() {
+  # List directories
+  ls $* | grep "^d" | awk '{printf "\033[1;34m📁\033[0m " $0 "\n"}';
+  # List regular files
+  ls $* | grep "^-" | awk '{print "📄 " $0}';
+  # List links
+  ls $* | grep "^l" | awk '{print "🔗 " $0}';
+  # List everything else (e.g. symbolic links)
+  ls $* | grep -v -E "^d|^-|^l|^total"
+}
+
+alias ll=list_sorted
+
+# Tree-like directory listing.
+alias tree="tree --dirsfirst -F -I '.git|node_modules'"
+
+# Make sure “python” defaults to version 3
+alias python=python3
+alias pip=pip3
+
+# Work
+alias mb='make build'
+alias mdst='make docker-start'
+alias mdsp='make docker-setup'
+alias mdrs='make docker-runserver'
+#alias mdrc='make docker-runcelery-debug'
+#alias mdrd='make docker-rundramatiq'
+
+# Docker Aliases
+alias docker='docker.exe'
+alias docker-compose='docker-compose.exe'
+
+# DevvCash Alias
+alias cashcow='sshpass -p${} ssh cashcow'
+# !! Will send you personally these aliases
+
+#Postgres Aliases
+alias pgstart='sudo service postgresql start'
+alias pgrun='sudo -u postgres psql'
+
+#File Jumping
+alias WORK='cd /mnt/c/Users/${WINDOWS_USERNAME}/Documents/GitHub/'
+alias PROJECTS='cd /mnt/c/Users/${WINDOWS_USERNAME}/Desktop/bootcamp/git/'
+alias DOCUMENTS='cd /mnt/c/Users/${WINDOWS_USERNAME}/Documents/'
+
+# User specific aliases and functions
+
+# AWS Login Alias
+# !! Will send you personally these aliases
+
+# Shard Aliases
+# !! Will send you personally these aliases
+
+# SSH Alias Release-manager
+# !! Will send you personally these aliases
+
+# Print my public IP
+alias myip='curl ipinfo.io/ip'
+
+# List Columns Default
+alias ls="ls -CF"
+
+# Change Parent Directory
+alias cd..="cd .."
+
+# Find Files in Cur Dir
+alias fhere="find . -name "
+
+# Dotfiles backup utility for repo https://github.com/ENTER_YOUR_GH_USERNAME_HERE/wsl2-dotfiles.git
+alias config='/usr/bin/git --git-dir=/home/${USER}/.cfg/ --work-tree=/home/${USER}'
+
+# Node_Modules Tools
+alias killmodules='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +'
+alias killyarnlock='find . -name "yarn.lock" -type f -prune -exec rm -rf '{}' +'

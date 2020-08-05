@@ -16,13 +16,14 @@ if which node &> /dev/null; then
 fi
 
 # Packages
-sudo npm install -g create-react-app
-sudo npm install -g create-react-native-app
-sudo npm install -g eslint
-sudo npm install -g gulp-cli
-sudo npm install -g sass
-sudo npm install -g typescript
-sudo npm install -g tslint
+sudo yarn global add create-react-app
+sudo yarn global add create-next-app
+sudo yarn global add create-react-native-app
+sudo yarn global add eslint
+sudo yarn global add gulp-cli
+sudo yarn global add sass
+sudo yarn global add typescript
+sudo yarn global add tslint
 
 # Finish
 e_success "Finished npm packages settings."
