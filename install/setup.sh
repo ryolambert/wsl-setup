@@ -11,6 +11,8 @@ keep_sudo_alive
 seek_confirmation "Warning: This step install applications."
 if is_confirmed; then
   e_header "Please, configure you applications before installation:"
+  nano ${DOTFILES_DIRECTORY}/.bashrc
+  nano ${DOTFILES_DIRECTORY}/.zsh_aliases
   nano ${DOTFILES_DIRECTORY}/install/apps.sh
   bash ./install/apps.sh
 else

@@ -1,4 +1,4 @@
-WINDOWS_USERNAME="ryola"
+WINDOWS_USERNAME="ENTER_YOUR_NAME"
 
 export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Programs/Microsoft VS Code/bin"
 # ~/.bashrc: executed by bash(1) for non-login shells.

@@ -34,6 +34,7 @@ replace ".profile"          ".profile"
 replace ".bash_logout"      ".bash_logout"
 replace ".zshrc"            ".zshrc"
 replace ".zsh_aliases"      ".zsh_aliases"
+replace ".p10k.zsh"         ".p10k.zsh"
 replace ".shell_prompt.sh"  ".shell_prompt.sh"
 replace "packages"          "packages"
 # Git configs
